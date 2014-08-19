@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace QuickPower.API
 {
-    public class PowerScheme : ICloneable
+    public class PowerScheme : ICloneable, INotifyPropertyChanged
     {
+        private bool _active;
+
         public string Name { get; set; }
         public Guid ID { get; set; }
-        public bool Active { get; set; }
+        public bool Active { get { return _active; } set { _active = value; RaisePropertyChanged("Active"); } }
 
         public PowerScheme(Guid id, string name, bool active)
         {
@@ -34,6 +36,15 @@ namespace QuickPower.API
         public override int GetHashCode()
         {
             return ID.GetHashCode();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

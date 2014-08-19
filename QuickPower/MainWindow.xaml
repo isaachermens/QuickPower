@@ -27,6 +27,9 @@
                             </DataTemplate>
                         </MenuItem.ItemTemplate>
                     </MenuItem>
+                    
+                    <Separator></Separator>
+                    
                     <MenuItem Header="Battery Discharging Profile" ItemsSource="{Binding DischargingPowerSchemes}">
                         <MenuItem.ItemTemplate>
                             <DataTemplate DataType="api:PowerScheme">
@@ -47,6 +50,9 @@
                             </DataTemplate>
                         </MenuItem.ItemTemplate>
                     </MenuItem>
+                    
+                    <Separator></Separator>
+                    
                     <MenuItem Header="Power Actions" ItemsSource="{Binding PowerActions}">
                         <MenuItem.ItemTemplate>
                             <DataTemplate DataType="cmdModels:PowerAction">
@@ -56,6 +62,9 @@
                             </DataTemplate>
                         </MenuItem.ItemTemplate>
                     </MenuItem>
+                    
+                    <Separator></Separator>
+                    
                     <MenuItem Header="Close QuickPower" Command="{Binding CloseWindow}" />
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>

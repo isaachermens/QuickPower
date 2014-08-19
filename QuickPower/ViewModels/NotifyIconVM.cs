@@ -54,6 +54,15 @@ namespace QuickPower.ViewModels
             PowerActions = new ObservableCollection<PowerAction>(PowerAction.GetActions());
         }
 
+        public void UpdateActiveScheme(Guid schemeId)
+        {
+            foreach (var scheme in PowerSchemes)
+            {
+                if (scheme.ID == schemeId)
+                    scheme.Active = true;
+            }
+        }
+
         /// <summary>
         /// Sets the Active field of each power scheme in the provided list according to 
         /// whether or not the scheme's Guid equals the provided Guid
